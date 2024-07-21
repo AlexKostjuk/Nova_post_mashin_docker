@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for post_machin_lock in post_machin_lockes %}
+    id number --- {{ post_machin_lock.pk }} <br>
+    size : {{ post_machin_lock.size }} <br>
+    status : {{ post_machin_lock.status }} <br>
+    ____________
+    <br>
+{% endfor %}<br><br>
+
+    <form method="POST" action="/parcel/parcel_form/">
+        {% csrf_token %}
+<input type="hidden" name="post_machin_id" id= "post_machin_id" value="{{ post_machin.pk }}">
+
+        <input type="submit" value="Create parcel">
+    </form><br><br>
+
+
+<a href="/post_machines/">post_machins</a>
+   <br>----<br> <a href="/">home</a><br>----<br>
+
+
+</body>
+</html>

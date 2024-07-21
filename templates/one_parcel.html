@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+your parcel : <br>
+id number --- {{ parcel.post_machin.pk }} <br>
+city --- {{ parcel.post_machin.city }} <br>
+address --- {{ parcel.post_machin.adress }} <br>
+size --- {{ parcel.size }} <br> <br>
+
+status:
+{% if parcel.status == False %}
+not received yet
+{% else %}
+received {{parcel.open_date_time}}
+{% endif %}
+<br>
+<br>
+
+{% if parcel.locker is not None and parcel.status == False %}
+    <form method="POST" action="/parcel/{{ parcel.pk }}/get_parcel/">
+        {% csrf_token %}
+<input type="hidden" name="parcel_id" id= "parcel_id" value="{{ parcel.pk }}">
+
+        <input type="submit" value="Get Parsel">
+    </form>
+{% endif %}
+
+<br>
+
+<a href="/parcel/">parcels</a>
+   <br>----<br> <a href="/">home</a><br>----<br>
+
+</body>
+</html>

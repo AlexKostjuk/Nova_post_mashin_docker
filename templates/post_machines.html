@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for post_machin in post_machines %}
+    <a href="/post_machines/{{ post_machin.pk }}">post_machines{{ post_machin.pk }}<br>огляд порожніх комірок та створення посилки</a><br>
+    address : {{ post_machin.adress }} <br>
+    city : {{ post_machin.city }} <br>
+    ____________
+    <br>
+{% endfor %}
+   <br>----<br> <a href="/">home</a><br>----<br>
+
+</body>
+</html>
