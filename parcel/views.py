@@ -19,7 +19,7 @@ def parcels_view(request):
 
 def get_parcel(request,parcel_id):
     if request.method == 'POST':
-        parcel = models.Parcel.objects.get(pk=request.POST['parcel_id'])
+        parcel = models.Parcel.objects.get(pk=parcel_id)
         parcel.status = True
         parcel.open_date_time = datetime.datetime.now()
         if parcel.order_date_time is None:

@@ -15,7 +15,7 @@ class PostMachin(models.Model):
 
 
 class Locker(models.Model):
-    size = models.ImageField()
+    size = models.IntegerField()
     post_machin = models.ForeignKey(PostMachin, on_delete=models.CASCADE)
     status = models.BooleanField(default=False)
 
